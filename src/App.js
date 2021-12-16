@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import Fetch from './components/Fetch'
+import MovieUI from './components/MovieUI'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component { // This component should be changed from App to Movie, containing all logic for the Movie page - change current Movie component to MovieUI or something
+  constructor() {
+    super()
+    this.state = {
+      loading: true,
+      movie: ''
+    }
+    this.handleState = this.handleState.bind(this)
+  }
+
+  handleState(isLoading, movieTitle) {
+    this.setState({
+      loading: isLoading,
+      movie: movieTitle
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <Fetch handleState={this.handleState} movie={this.state.movie}/>
+        <MovieUI movie={this.state.movie}/>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
