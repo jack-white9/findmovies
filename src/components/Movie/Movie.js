@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import Fetch from './Fetch'
+import FetchMovie from './FetchMovie'
 import MovieUI from './MovieUI'
 
-class App extends Component {
+class Movie extends Component {
   constructor() {
     super()
     this.state = {
@@ -22,11 +22,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Fetch handleState={this.handleState} movie={this.state.movie}/>
+        <FetchMovie handleState={this.handleState} movie={this.state.movie}/>
         <MovieUI movie={this.state.movie}/>
       </div>
     )
   }
 }
 
-export default App
+export default Movie

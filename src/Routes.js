@@ -8,7 +8,6 @@ const RouteSwitch = () => {
         <BrowserRouter>
             <Routes>
                 <Route exact path='/' element={<Landing />} />
-                <Route exact path='/results' element={<Results />} />
                 <Route exact path='/movie' element={<Movie />} />
             </Routes>
         </BrowserRouter>
