@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import Fetch from './components/Fetch'
-import MovieUI from './components/MovieUI'
+import Fetch from './Fetch'
+import MovieUI from './MovieUI'
 
-class App extends Component { // This component should be changed from App to Movie, containing all logic for the Movie page - change current Movie component to MovieUI or something
+class App extends Component {
   constructor() {
     super()
     this.state = {
