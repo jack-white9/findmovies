@@ -7,7 +7,7 @@ class ResultsUI extends Component {
         const results = this.props.results.results
 
         if (results) {
-            ResultComponents = this.props.results.results.map(result => <Result id={result.id} poster={result.poster_path} title={result.original_title} />)
+            ResultComponents = this.props.results.results.map(result => <Result id={result.id} poster={result.poster_path} title={result.original_title} handleClick={this.props.handleClick}/>)
         }
         
         return (

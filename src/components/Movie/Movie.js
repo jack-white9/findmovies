@@ -7,7 +7,7 @@ class Movie extends Component {
     super()
     this.state = {
       loading: true,
-      movie: ''
+      movie: '550'
     }
     this.handleState = this.handleState.bind(this)
   }

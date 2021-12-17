@@ -10,21 +10,25 @@ class Results extends Component {
       results: ''
     }
     this.handleState = this.handleState.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
-  handleState(isLoading, movieTitle) { // method not needed??
+  handleState(isLoading, movieTitle) {
     this.setState({
       loading: isLoading,
       results: movieTitle
     })
   }
 
+  handleClick(id) {
+    console.log(id)
+  }
+
   render() {
-    //console.log(this.state) // this.props.searchQuery being updated, this.state.results is not... difference between props and state???
     return (
       <div>
         <FetchResults handleState={this.handleState} searchQuery={this.props.searchQuery} results={this.state.results.results}/>
-        <ResultsUI searchQuery={this.props.searchQuery} results={this.state.results}/>
+        <ResultsUI searchQuery={this.props.searchQuery} results={this.state.results} handleClick={this.handleClick}/>
       </div>
     )
   }
