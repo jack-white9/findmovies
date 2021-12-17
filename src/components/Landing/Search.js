@@ -12,12 +12,14 @@ class Search extends Component {
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value})
+        console.log(this.state)
+        this.setState({value: event.target.value, searchQuery: this.state.searchQuery})
     }
 
     handleSubmit(event) {
-        this.setState(prevState => ({searchQuery: prevState.value}))
+        this.setState(prevState => ({value: this.state.value, searchQuery: prevState.value})) // totally removes value from state
         event.preventDefault()
+        console.log(this.state)
     }
 
     render() {
@@ -33,7 +35,7 @@ class Search extends Component {
                     <input type="submit" value="Search"></input>
                 </form>
 
-                {this.state.searchQuery ? <Results searchQuery={this.state.searchQuery} /> : null} {/* This works, but Routes.js overrides the component with a stateless clone after window.location.href */}
+                {this.state.searchQuery ? <Results searchQuery={this.state.searchQuery} /> : null}
             </div>
         )
     }
