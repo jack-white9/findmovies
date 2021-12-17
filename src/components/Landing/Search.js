@@ -12,14 +12,12 @@ class Search extends Component {
     }
 
     handleChange(event) {
-        console.log(this.state)
         this.setState({value: event.target.value, searchQuery: this.state.searchQuery})
     }
 
     handleSubmit(event) {
-        this.setState(prevState => ({value: this.state.value, searchQuery: prevState.value})) // totally removes value from state
+        this.setState(prevState => ({value: this.state.value, searchQuery: prevState.value}))
         event.preventDefault()
-        console.log(this.state)
     }
 
     render() {
