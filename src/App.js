@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './themes/App.css'
 import Search from './components/Search'
 import Landing from './components/Landing'
 import Results from './components/Results'
@@ -28,8 +29,15 @@ class App extends Component {
     render() {
         return (
             <div>
-                {this.state.movieData ? null : <Landing state={this.state} handleState={this.handleState} />}
-                {this.state.movieData ? null: <Search state={this.state} handleState={this.handleState} />}
+                {this.state.results ? 
+                    null :
+                    <section className="landing">
+                        <section>
+                            <Landing state={this.state} handleState={this.handleState} />
+                            <Search state={this.state} handleState={this.handleState} />
+                        </section>
+                    </section>
+                }
                 {this.state.movieData ? null: <Results state={this.state} handleState={this.handleState} />}
                 <Movie state={this.state} handleState={this.handleState} />
             </div>

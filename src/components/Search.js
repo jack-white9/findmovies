@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import 'font-awesome/css/font-awesome.min.css'
+
 
 class Search extends Component {
     constructor() {
@@ -22,10 +24,18 @@ class Search extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Search:
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
+                        <input 
+                            type="text" 
+                            value={this.state.value} 
+                            onChange={this.handleChange} 
+                            className="landing__search--bar"
+                        />
                     </label>
-                    <input type="submit" value="Search"></input>
+                    <button 
+                        type="submit" 
+                        value="Search" 
+                        className="landing__search--button"
+                    ><i className="fa fa-search fa-2x"/></button>
                 </form>
             </div>
         )
