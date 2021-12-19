@@ -1,8 +1,17 @@
 import React, {Component} from 'react'
 
 class Movie extends Component {
+    constructor() {
+        super()
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+        this.props.handleState('', '', '', '')
+    }
+
     componentDidUpdate(prevProps) {
-        if (prevProps.state.movieID !== this.props.state.movieID) {
+        if (prevProps.state.movieID !== this.props.state.movieID && this.props.state.searchQuery) {
             fetch(`https://api.themoviedb.org/3/movie/${this.props.state.movieID}?api_key=0099fa805ff60f1cae24e90d7be97930`)
             .then(response => response.json())
             .then(data => this.props.handleState(
@@ -19,6 +28,7 @@ class Movie extends Component {
         if (movie) {
             return (
                 <div>
+                    <button onClick={this.handleClick}>BACK</button>
                     <img src={'http://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.original_title + ' movie poster'}></img>
                     <h1>{movie.original_title}</h1>
                     <h2>{movie.release_date}</h2>
