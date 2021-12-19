@@ -34,9 +34,11 @@ class Results extends Component {
         }
         
         return (
-            <div>
-                {results ? <p>Results for "{this.props.state.searchQuery.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})}"</p> : null}
-                {results ? ResultComponents : null}
+            <div className="results">
+                {results ? <p className="results__text">Results for "{this.props.state.searchQuery.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})}"</p> : null}
+                <section className="results__grid">
+                    {results ? ResultComponents : null}
+                </section>
             </div>
         )
     }
