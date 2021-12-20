@@ -21,7 +21,7 @@ class Results extends Component {
             this.props.state.searchQuery,
             this.props.state.results,
             id,
-            'data'
+            this.props.state.movieData
         )
     }
 

@@ -1,4 +1,9 @@
 import React, {Component} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faStar } from '@fortawesome/free-solid-svg-icons'
+// import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
+
+
 
 class Movie extends Component {
     constructor() {
@@ -25,19 +30,50 @@ class Movie extends Component {
 
     render() {
         const movie = this.props.state.movieData
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        })
+
         if (movie) {
             return (
-                <div>
-                    <button onClick={this.handleClick}>BACK</button>
-                    <img src={'http://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.original_title + ' movie poster'}></img>
-                    <h1>{movie.original_title}</h1>
-                    <h2>{movie.release_date}</h2>
-                    <h3>{movie.genres ? movie.genres[0].name : null}</h3>
-                    <h4>{movie.overview}</h4>
-                    <p>{movie.runtime} minutes</p>
-                    <p>{movie.vote_average}/10 ({movie.vote_count})</p>
-                    <p>Box office: ${movie.revenue}</p>
-                    <p>Budget: ${movie.budget}</p>
+                <div className="movie">
+                    <button 
+                        onClick={this.handleClick}
+                        className="movie__button"
+                    >
+                        <FontAwesomeIcon icon={faAngleLeft}/>
+                        &nbsp;Back
+                    </button>
+                    <main className="movie__container">
+                        <img
+                            src={'http://image.tmdb.org/t/p/w500' + movie.poster_path} 
+                            alt={movie.original_title + ' movie poster'}
+                            className="movie__img"
+                            />
+                        <section className="movie__container--info">
+                            <h1 className="movie__container__info--title">{movie.original_title}</h1>
+                            <h2 className="movie__container__info--details">{movie.release_date} &bull; {movie.genres[0].name} &bull; {movie.runtime} minutes</h2>
+                            <h3 className="movie__container__info--ratings"><FontAwesomeIcon icon={faStar}/> {movie.vote_average}/10 ({movie.vote_count})</h3>
+                            <h4 className="movie__container__info--tagline">{movie.tagline}</h4>
+                            <h5 className="movie__container__info--overview-heading">Overview</h5>
+                            <p className="movie__container__info--overview">{movie.overview}</p>
+                            <section className="movie__container__info--details">
+                                <section className="movie__container__info__details--subcontainer">
+                                    <h5 className="movie__container__info--subheading">Status</h5>
+                                    <p>{movie.status}</p>
+                                </section>
+                                <section className="movie__container__info__details--subcontainer">
+                                    <h5 className="movie__container__info--subheading">Box Office</h5> 
+                                    <p>{formatter.format(movie.revenue).slice(0, -3)}</p>
+                                </section>
+                                <section className="movie__container__info__details--subcontainer">
+                                    <h5 className="movie__container__info--subheading">Budget</h5>
+                                    <p>{formatter.format(movie.budget).slice(0, -3)}</p>
+                                </section>
+                            </section>
+                        </section>
+                    </main>
                 </div>
             )
         } else {
