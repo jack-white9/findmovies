@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 
-class Results extends Component { 
+class Results extends Component {
     constructor() {
         super()
         this.handleClick = this.handleClick.bind(this)
@@ -14,7 +14,7 @@ class Results extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps.state.searchQuery !== this.props.state.searchQuery && this.props.state.searchQuery) {
             const searchQuery = this.props.state.searchQuery
-            fetch(`https://api.themoviedb.org/3/search/movie?api_key=0099fa805ff60f1cae24e90d7be97930&query=${searchQuery}`)
+            fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${searchQuery}`)
               .then(response => response.json())
               .then(data => this.props.handleState(this.props.state.searchQuery, data, '', ''))
         }

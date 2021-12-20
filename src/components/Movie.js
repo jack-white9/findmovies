@@ -14,7 +14,7 @@ class Movie extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.state.movieID !== this.props.state.movieID && this.props.state.searchQuery) {
-            fetch(`https://api.themoviedb.org/3/movie/${this.props.state.movieID}?api_key=0099fa805ff60f1cae24e90d7be97930`)
+            fetch(`https://api.themoviedb.org/3/movie/${this.props.state.movieID}?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(response => response.json())
             .then(data => this.props.handleState(
               this.props.state.searchQuery,
