@@ -67,7 +67,7 @@
     background-color: #011638;
     color: #E8C1C5;
     gap: 50px;
-    padding-top: 50px;
+    padding: 50px 0;
 }
 
 .results__text {
@@ -88,6 +88,9 @@
 
 .results__grid--img {
     transition: all 300ms ease;
+    height: 750px;
+    width: 500px;
+    object-fit: cover;
 }
 
 .results__grid--text {
