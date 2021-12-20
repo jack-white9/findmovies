@@ -61,15 +61,15 @@ class Movie extends Component {
                             <section className="movie__container__info--details">
                                 <section className="movie__container__info__details--subcontainer">
                                     <h5 className="movie__container__info--subheading">Status</h5>
-                                    <p>{movie.status}</p>
+                                    <p className="movie__container__info--text">{movie.status}</p>
                                 </section>
                                 <section className="movie__container__info__details--subcontainer">
                                     <h5 className="movie__container__info--subheading">Box Office</h5> 
-                                    <p>{formatter.format(movie.revenue).slice(0, -3)}</p>
+                                    <p className="movie__container__info--text">{formatter.format(movie.revenue).slice(0, -3)}</p>
                                 </section>
                                 <section className="movie__container__info__details--subcontainer">
                                     <h5 className="movie__container__info--subheading">Budget</h5>
-                                    <p>{formatter.format(movie.budget).slice(0, -3)}</p>
+                                    <p className="movie__container__info--text">{formatter.format(movie.budget).slice(0, -3)}</p>
                                 </section>
                             </section>
                         </section>
