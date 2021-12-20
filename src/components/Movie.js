@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faStar } from '@fortawesome/free-solid-svg-icons'
-// import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
-
-
 
 class Movie extends Component {
     constructor() {
