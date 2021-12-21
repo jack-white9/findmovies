@@ -301,6 +301,9 @@ body {
 
 /* Small phones */
 @media (max-width: 480px) {
+    .movie__container__info--title {
+        overflow-wrap: break-word;
+    }
     .movie__container__info--details {
         flex-direction: column;
     }
