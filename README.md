@@ -1,4 +1,6 @@
 # FindMovies
+[See the live demo here](https://jack-white9.github.io/findmovies/)
+
 ## About the Project
 FindMovies is a movie database web application created with React. Users can search movies and find information about them, such as release date, budget, box office, and more. The project features a responsive design that works seamlessly for users of all screen sizes, including desktop users, tablet users, and mobile users.
 
